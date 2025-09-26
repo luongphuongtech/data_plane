@@ -21,7 +21,7 @@ image:
   # -- Repository location of the Trino image, typically `organization/imagename`
   repository: phuonln/trino-custom-150
   # -- Image tag, defaults to the Trino release version specified as `appVersion` from Chart.yaml
-  tag: "469"
+  tag: "460"
   # -- Optional digest value of the image specified as `sha256:abcd...`. A specified value overrides `tag`.
   digest: ""
   # -- When true, only the content in `repository` is used as image reference
