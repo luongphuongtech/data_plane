@@ -1,0 +1,5 @@
+FROM apache/airflow:3.0.2
+
+COPY airflow/plugins /opt/airflow/dags/plugins/
+
+RUN pip install --no-cache-dir "apache-airflow==${AIRFLOW_VERSION}" apache-airflow  apache-airflow-providers-trino

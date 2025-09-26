@@ -1,0 +1,20 @@
+FROM trinodb/trino:469
+
+COPY gravitino-trino-connector-1.0.0 /lib/trino/plugin/gravitino-trino-connector-1.0.0 
+
+COPY ca.crt /$JAVA_HOME/lib/security/
+
+USER root
+RUN keytool -importcert \
+      -alias trino-local \
+      -keystore $JAVA_HOME/lib/security/cacerts \
+      -storepass changeit \
+      -file /$JAVA_HOME/lib/security/ca.crt \
+      -noprompt
+
+RUN keytool -list \
+      -keystore $JAVA_HOME/lib/security/cacerts \
+      -storepass changeit \
+      -alias trino-local
+USER trino
+
