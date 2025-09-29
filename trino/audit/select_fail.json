@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "queryId": "20250929_160914_00042_bqse9",
+    "transactionId": "c527986b-0993-4d00-8489-a070ce2cf805",
+    "query": "SELECT * FROM testpostgres25.app_test_missing.customers_test_missing",
+    "queryState": "FAILED",
+    "tables": [],
+    "routines": [],
+    "uri": "http://10.100.124.22:8080/v1/query/20250929_160914_00042_bqse9"
+  },
+  "statistics": {
+    "cpuTime": 0.0,
+    "failedCpuTime": 0.0,
+    "wallTime": 0.0,
+    "queuedTime": 0.001,
+    "peakUserMemoryBytes": 0,
+    "peakTaskUserMemory": 0,
+    "peakTaskTotalMemory": 0,
+    "physicalInputBytes": 0,
+    "physicalInputRows": 0,
+    "processedInputBytes": 0,
+    "processedInputRows": 0,
+    "internalNetworkBytes": 0,
+    "internalNetworkRows": 0,
+    "totalBytes": 0,
+    "totalRows": 0,
+    "outputBytes": 0,
+    "outputRows": 0,
+    "writtenBytes": 0,
+    "writtenRows": 0,
+    "spilledBytes": 0,
+    "cumulativeMemory": 0.0,
+    "failedCumulativeMemory": 0.0,
+    "stageGcStatistics": [],
+    "completedSplits": 0,
+    "complete": true,
+    "cpuTimeDistribution": [],
+    "outputBufferUtilization": [],
+    "operatorSummaries": [],
+    "optimizerRulesSummaries": []
+  },
+  "context": {
+    "user": "service-account-trino-client",
+    "originalUser": "service-account-trino-client",
+    "principal": "service-account-trino-client",
+    "enabledRoles": [],
+    "groups": [],
+    "remoteClientAddress": "10.100.124.27",
+    "userAgent": "Trino Python Client/0.336.0",
+    "clientTags": [],
+    "clientCapabilities": [
+      "PARAMETRIC_DATETIME",
+      "SESSION_AUTHORIZATION"
+    ],
+    "source": "trino-python-client",
+    "timezone": "UTC",
+    "catalog": "hive",
+    "schema": "default",
+    "resourceGroupId": [
+      "global"
+    ],
+    "sessionProperties": {},
+    "resourceEstimates": {},
+    "serverAddress": "10.100.124.22",
+    "serverVersion": "435",
+    "environment": "production",
+    "queryType": "SELECT",
+    "retryPolicy": "NONE"
+  },
+  "ioMetadata": {
+    "inputs": []
+  },
+  "failureInfo": {
+    "errorCode": {
+      "code": 45,
+      "name": "SCHEMA_NOT_FOUND",
+      "type": "USER_ERROR"
+    },
+    "failureType": "io.trino.spi.TrinoException",
+    "failureMessage": "line 1:15: Schema 'app_test_missing' does not exist",
+    "failuresJson": "{\"type\":\"io.trino.spi.TrinoException\",\"message\":\"line 1:15: Schema 'app_test_missing' does not exist\",\"suppressed\":[],\"stack\":[\"io.trino.sql.analyzer.SemanticExceptions.semanticException(SemanticExceptions.java:52)\",\"io.trino.sql.analyzer.SemanticExceptions.semanticException(SemanticExceptions.java:46)\",\"io.trino.sql.analyzer.StatementAnalyzer$Visitor.visitTable(StatementAnalyzer.java:2287)\",\"io.trino.sql.analyzer.StatementAnalyzer$Visitor.visitTable(StatementAnalyzer.java:521)\",\"io.trino.sql.tree.Table.accept(Table.java:60)\",\"io.trino.sql.tree.AstVisitor.process(AstVisitor.java:27)\",\"io.trino.sql.analyzer.StatementAnalyzer$Visitor.process(StatementAnalyzer.java:540)\",\"io.trino.sql.analyzer.StatementAnalyzer$Visitor.analyzeFrom(StatementAnalyzer.java:4869)\",\"io.trino.sql.analyzer.StatementAnalyzer$Visitor.visitQuerySpecification(StatementAnalyzer.java:3062)\",\"io.trino.sql.analyzer.StatementAnalyzer$Visitor.visitQuerySpecification(StatementAnalyzer.java:521)\",\"io.trino.sql.tree.QuerySpecification.accept(QuerySpecification.java:155)\",\"io.trino.sql.tree.AstVisitor.process(AstVisitor.java:27)\",\"io.trino.sql.analyzer.StatementAnalyzer$Visitor.process(StatementAnalyzer.java:540)\",\"io.trino.sql.analyzer.StatementAnalyzer$Visitor.process(StatementAnalyzer.java:548)\",\"io.trino.sql.analyzer.StatementAnalyzer$Visitor.visitQuery(StatementAnalyzer.java:1558)\",\"io.trino.sql.analyzer.StatementAnalyzer$Visitor.visitQuery(StatementAnalyzer.java:521)\",\"io.trino.sql.tree.Query.accept(Query.java:118)\",\"io.trino.sql.tree.AstVisitor.process(AstVisitor.java:27)\",\"io.trino.sql.analyzer.StatementAnalyzer$Visitor.process(StatementAnalyzer.java:540)\",\"io.trino.sql.analyzer.StatementAnalyzer.analyze(StatementAnalyzer.java:500)\",\"io.trino.sql.analyzer.StatementAnalyzer.analyze(StatementAnalyzer.java:489)\",\"io.trino.sql.analyzer.Analyzer.analyze(Analyzer.java:97)\",\"io.trino.sql.analyzer.Analyzer.analyze(Analyzer.java:86)\",\"io.trino.execution.SqlQueryExecution.analyze(SqlQueryExecution.java:274)\",\"io.trino.execution.SqlQueryExecution.<init>(SqlQueryExecution.java:209)\",\"io.trino.execution.SqlQueryExecution$SqlQueryExecutionFactory.createQueryExecution(SqlQueryExecution.java:850)\",\"io.trino.dispatcher.LocalDispatchQueryFactory.lambda$createDispatchQuery$0(LocalDispatchQueryFactory.java:153)\",\"io.trino.$gen.Trino_435____20250929_110555_2.call(Unknown Source)\",\"com.google.common.util.concurrent.TrustedListenableFutureTask$TrustedFutureInterruptibleTask.runInterruptibly(TrustedListenableFutureTask.java:131)\",\"com.google.common.util.concurrent.InterruptibleTask.run(InterruptibleTask.java:76)\",\"com.google.common.util.concurrent.TrustedListenableFutureTask.run(TrustedListenableFutureTask.java:82)\",\"java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)\",\"java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)\",\"java.base/java.lang.Thread.run(Thread.java:1583)\"],\"errorLocation\":{\"lineNumber\":1,\"columnNumber\":15},\"errorCode\":{\"code\":45,\"name\":\"SCHEMA_NOT_FOUND\",\"type\":\"USER_ERROR\"}}"
+  },
+  "warnings": [],
+  "createTime": "2025-09-29T16:09:14.076Z",
+  "executionStartTime": "2025-09-29T16:09:14.093Z",
+  "endTime": "2025-09-29T16:09:14.093Z"
+}

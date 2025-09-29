@@ -1,0 +1,223 @@
+{
+  "metadata": {
+    "queryId": "20250929_160908_00037_bqse9",
+    "transactionId": "066a2db1-729a-4850-a0b6-cf0b9b21cfe6",
+    "query": "\n            UPDATE testpostgres25.app_test_ok.customers_test_ok\n            SET is_active = FALSE\n            WHERE customer_id = 2\n            ",
+    "updateType": "UPDATE",
+    "queryState": "FINISHED",
+    "tables": [],
+    "routines": [],
+    "uri": "http://10.100.124.22:8080/v1/query/20250929_160908_00037_bqse9",
+    "plan": "Trino version: 435\nQueued: 944.55us, Analysis: 162.81ms, Planning: 42.03ms, Execution: 75.31ms\nFragment 0 [COORDINATOR_ONLY]\n    CPU: 2.59ms, Scheduled: 5.05ms, Blocked 0.00ns (Input: 0.00ns, Output: 0.00ns), Input: 0 rows (0B); per task: avg.: 0.00 std.dev.: 0.00, Output: 1 row (9B)\n    Output layout: [rows]\n    Output partitioning: SINGLE []\n    Output[columnNames = [rows]]\n    │   Layout: [rows:bigint]\n    │   Estimates: {rows: ? (?), cpu: 0, memory: 0B, network: 0B}\n    │   CPU: 0.00ns (0.00%), Scheduled: 0.00ns (0.00%), Blocked: 0.00ns (?%), Output: 1 row (9B)\n    │   Input avg.: 1.00 rows, Input std.dev.: 0.00%\n    └─ TableUpdate[target = testpostgres25:app_test_ok.customers_test_ok->app_test_ok.customers_test_ok app_test_ok.customers_test_ok constraint on [customer_id] columns=[full_name:varchar:text, $merge_row_id:bigint:bigint, created_at:timestamp(3):timestamp, customer_id:integer:int4, email:varchar:text] updateAssignments=JdbcAssignmentItem[column=is_active:boolean:bool, queryParameter=QueryParameter{jdbcType=Optional.empty, type=boolean, value=Optional[false]}]]\n           Layout: [rows:bigint]\n           CPU: 2.00ms (100.00%), Scheduled: 5.00ms (100.00%), Blocked: 0.00ns (?%), Output: 1 row (9B)\n           Input avg.: 0.00 rows, Input std.dev.: ?%\n\n",
+    "jsonPlan": "{\n  \"0\" : {\n    \"id\" : \"6\",\n    \"name\" : \"Output\",\n    \"descriptor\" : {\n      \"columnNames\" : \"[rows]\"\n    },\n    \"outputs\" : [ {\n      \"symbol\" : \"rows\",\n      \"type\" : \"bigint\"\n    } ],\n    \"details\" : [ ],\n    \"estimates\" : [ {\n      \"outputRowCount\" : \"NaN\",\n      \"outputSizeInBytes\" : \"NaN\",\n      \"cpuCost\" : 0.0,\n      \"memoryCost\" : 0.0,\n      \"networkCost\" : 0.0\n    } ],\n    \"children\" : [ {\n      \"id\" : \"259\",\n      \"name\" : \"TableUpdate\",\n      \"descriptor\" : {\n        \"target\" : \"testpostgres25:app_test_ok.customers_test_ok->app_test_ok.customers_test_ok app_test_ok.customers_test_ok constraint on [customer_id] columns=[full_name:varchar:text, $merge_row_id:bigint:bigint, created_at:timestamp(3):timestamp, customer_id:integer:int4, email:varchar:text] updateAssignments=JdbcAssignmentItem[column=is_active:boolean:bool, queryParameter=QueryParameter{jdbcType=Optional.empty, type=boolean, value=Optional[false]}]\"\n      },\n      \"outputs\" : [ {\n        \"symbol\" : \"rows\",\n        \"type\" : \"bigint\"\n      } ],\n      \"details\" : [ ],\n      \"estimates\" : [ ],\n      \"children\" : [ ]\n    } ]\n  }\n}",
+    "payload": "{\"stageId\":\"20250929_160908_00037_bqse9.0\",\"state\":\"FINISHED\",\"plan\":{\"id\":\"0\",\"root\":{\"@type\":\"output\",\"id\":\"6\",\"source\":{\"@type\":\"tableUpdate\",\"id\":\"259\",\"target\":{\"catalogHandle\":\"testpostgres25:normal:2fbe02376e3ec9e0e18c3de10e908d4559b0af6ec3a027807ccf6fd4a01871cb\",\"connectorHandle\":{\"@type\":\"gravitino-trino-connector-1.0.0:org.apache.gravitino.trino.connector.GravitinoTableHandle\",\"schemaName\":\"app_test_ok\",\"tableName\":\"customers_test_ok\",\"handleString\":\"{\\\"@gravitino-connector-type\\\":\\\"gravitino-postgresql:io.trino.plugin.jdbc.JdbcTableHandle\\\",\\\"relationHandle\\\":{\\\"@type\\\":\\\"named\\\",\\\"schemaTableName\\\":{\\\"schema\\\":\\\"app_test_ok\\\",\\\"table\\\":\\\"customers_test_ok\\\"},\\\"remoteTableName\\\":{\\\"schemaName\\\":\\\"app_test_ok\\\",\\\"tableName\\\":\\\"customers_test_ok\\\"},\\\"comment\\\":\\\"(From Gravitino, DO NOT EDIT: gravitino.v1.uid561300532355285200)\\\"},\\\"constraint\\\":{\\\"columnDomains\\\":[{\\\"column\\\":{\\\"@gravitino-connector-type\\\":\\\"gravitino-postgresql:io.trino.plugin.jdbc.JdbcColumnHandle\\\",\\\"columnName\\\":\\\"customer_id\\\",\\\"jdbcTypeHandle\\\":{\\\"jdbcType\\\":4,\\\"jdbcTypeName\\\":\\\"int4\\\",\\\"columnSize\\\":10,\\\"decimalDigits\\\":0},\\\"columnType\\\":\\\"integer\\\",\\\"nullable\\\":true},\\\"domain\\\":{\\\"values\\\":{\\\"@type\\\":\\\"sortable\\\",\\\"type\\\":\\\"integer\\\",\\\"inclusive\\\":[true,true],\\\"sortedRanges\\\":\\\"AwAAAFJMRQIAAAAJAAAASU5UX0FSUkFZAQAAAAACAAAA\\\"},\\\"nullAllowed\\\":false}}]},\\\"constraintExpressions\\\":[],\\\"columns\\\":[{\\\"@gravitino-connector-type\\\":\\\"gravitino-postgresql:io.trino.plugin.jdbc.JdbcColumnHandle\\\",\\\"columnName\\\":\\\"full_name\\\",\\\"jdbcTypeHandle\\\":{\\\"jdbcType\\\":12,\\\"jdbcTypeName\\\":\\\"text\\\",\\\"columnSize\\\":2147483647,\\\"decimalDigits\\\":0},\\\"columnType\\\":\\\"varchar\\\",\\\"nullable\\\":true},{\\\"@gravitino-connector-type\\\":\\\"gravitino-postgresql:io.trino.plugin.jdbc.JdbcColumnHandle\\\",\\\"columnName\\\":\\\"$merge_row_id\\\",\\\"jdbcTypeHandle\\\":{\\\"jdbcType\\\":-5,\\\"jdbcTypeName\\\":\\\"bigint\\\"},\\\"columnType\\\":\\\"bigint\\\",\\\"nullable\\\":true},{\\\"@gravitino-connector-type\\\":\\\"gravitino-postgresql:io.trino.plugin.jdbc.JdbcColumnHandle\\\",\\\"columnName\\\":\\\"created_at\\\",\\\"jdbcTypeHandle\\\":{\\\"jdbcType\\\":93,\\\"jdbcTypeName\\\":\\\"timestamp\\\",\\\"columnSize\\\":26,\\\"decimalDigits\\\":3},\\\"columnType\\\":\\\"timestamp(3)\\\",\\\"nullable\\\":true},{\\\"@gravitino-connector-type\\\":\\\"gravitino-postgresql:io.trino.plugin.jdbc.JdbcColumnHandle\\\",\\\"columnName\\\":\\\"customer_id\\\",\\\"jdbcTypeHandle\\\":{\\\"jdbcType\\\":4,\\\"jdbcTypeName\\\":\\\"int4\\\",\\\"columnSize\\\":10,\\\"decimalDigits\\\":0},\\\"columnType\\\":\\\"integer\\\",\\\"nullable\\\":true},{\\\"@gravitino-connector-type\\\":\\\"gravitino-postgresql:io.trino.plugin.jdbc.JdbcColumnHandle\\\",\\\"columnName\\\":\\\"email\\\",\\\"jdbcTypeHandle\\\":{\\\"jdbcType\\\":12,\\\"jdbcTypeName\\\":\\\"text\\\",\\\"columnSize\\\":2147483647,\\\"decimalDigits\\\":0},\\\"columnType\\\":\\\"varchar\\\",\\\"nullable\\\":true}],\\\"otherReferencedTables\\\":[],\\\"nextSyntheticColumnId\\\":0,\\\"updateAssignments\\\":[{\\\"column\\\":{\\\"@gravitino-connector-type\\\":\\\"gravitino-postgresql:io.trino.plugin.jdbc.JdbcColumnHandle\\\",\\\"columnName\\\":\\\"is_active\\\",\\\"jdbcTypeHandle\\\":{\\\"jdbcType\\\":-7,\\\"jdbcTypeName\\\":\\\"bool\\\",\\\"columnSize\\\":1,\\\"decimalDigits\\\":0},\\\"columnType\\\":\\\"boolean\\\",\\\"nullable\\\":true},\\\"queryParameter\\\":{\\\"type\\\":\\\"boolean\\\",\\\"valueBlock\\\":\\\"CgAAAEJZVEVfQVJSQVkBAAAAAAA=\\\"}}]}\"},\"transaction\":{\"@type\":\"gravitino-trino-connector-1.0.0:org.apache.gravitino.trino.connector.GravitinoTransactionHandle\",\"handleString\":\"{\\\"@gravitino-connector-type\\\":\\\"gravitino-postgresql:io.trino.plugin.jdbc.JdbcTransactionHandle\\\",\\\"uuid\\\":\\\"5a0495f8-ddc9-4a67-b801-9cf6a532a687\\\"}\"}},\"output\":\"rows\"},\"columns\":[\"rows\"],\"outputs\":[\"rows\"]},\"symbols\":{\"rows\":\"bigint\"},\"partitioning\":{\"connectorHandle\":{\"@type\":\"system:io.trino.sql.planner.SystemPartitioningHandle\",\"partitioning\":\"COORDINATOR_ONLY\",\"function\":\"SINGLE\"},\"scaleWriters\":false},\"partitionedSources\":[],\"outputPartitioningScheme\":{\"partitioning\":{\"handle\":{\"connectorHandle\":{\"@type\":\"system:io.trino.sql.planner.SystemPartitioningHandle\",\"partitioning\":\"SINGLE\",\"function\":\"SINGLE\"},\"scaleWriters\":false},\"arguments\":[]},\"outputLayout\":[\"rows\"],\"replicateNullsAndAny\":false},\"statsAndCosts\":{\"stats\":{\"6\":{\"outputRowCount\":\"NaN\",\"symbolStatistics\":{}},\"259\":{\"outputRowCount\":\"NaN\",\"symbolStatistics\":{}}},\"costs\":{\"6\":{\"cpuCost\":\"NaN\",\"maxMemory\":\"NaN\",\"maxMemoryWhenOutputting\":\"NaN\",\"networkCost\":\"NaN\",\"rootNodeLocalCostEstimate\":{\"cpuCost\":0.0,\"maxMemory\":0.0,\"networkCost\":0.0}},\"259\":{\"cpuCost\":\"NaN\",\"maxMemory\":\"NaN\",\"maxMemoryWhenOutputting\":\"NaN\",\"networkCost\":\"NaN\",\"rootNodeLocalCostEstimate\":{\"cpuCost\":\"NaN\",\"maxMemory\":\"NaN\",\"networkCost\":\"NaN\"}}}},\"activeCatalogs\":[{\"catalogHandle\":\"testpostgres25:normal:2fbe02376e3ec9e0e18c3de10e908d4559b0af6ec3a027807ccf6fd4a01871cb\",\"connectorName\":\"gravitino\",\"properties\":{\"trino.jdbc.password\":\"12345678\",\"gravitino.trino.skip-version-validation\":\"true\",\"trino.jdbc.user\":\"test\",\"gravitino.uri\":\"http://gravitino.data-service.svc.cluster.local:8090\",\"__gravitino.dynamic.connector.catalog.config\":\"{\\\"metalake\\\":\\\"example_metalake\\\",\\\"provider\\\":\\\"jdbc-postgresql\\\",\\\"name\\\":\\\"testpostgres25\\\",\\\"properties\\\":{\\\"jdbc-url\\\":\\\"jdbc:postgresql://my-postgres-postgresql.data-service.svc.cluster.local:5432/test\\\",\\\"jdbc-user\\\":\\\"admin\\\",\\\"jdbc-database\\\":\\\"test\\\",\\\"jdbc-driver\\\":\\\"org.postgresql.Driver\\\",\\\"jdbc-password\\\":\\\"admin\\\",\\\"in-use\\\":\\\"true\\\"},\\\"lastModifiedTime\\\":1759128563169}\",\"__gravitino.dynamic.connector\":\"true\",\"gravitino.metalake\":\"example_metalake\"}}],\"languageFunctions\":[],\"jsonRepresentation\":\"{\\n  \\\"id\\\" : \\\"6\\\",\\n  \\\"name\\\" : \\\"Output\\\",\\n  \\\"descriptor\\\" : {\\n    \\\"columnNames\\\" : \\\"[rows]\\\"\\n  },\\n  \\\"outputs\\\" : [ {\\n    \\\"symbol\\\" : \\\"rows\\\",\\n    \\\"type\\\" : \\\"bigint\\\"\\n  } ],\\n  \\\"details\\\" : [ ],\\n  \\\"estimates\\\" : [ ],\\n  \\\"children\\\" : [ {\\n    \\\"id\\\" : \\\"259\\\",\\n    \\\"name\\\" : \\\"TableUpdate\\\",\\n    \\\"descriptor\\\" : {\\n      \\\"target\\\" : \\\"testpostgres25:app_test_ok.customers_test_ok->app_test_ok.customers_test_ok app_test_ok.customers_test_ok constraint on [customer_id] columns=[full_name:varchar:text, $merge_row_id:bigint:bigint, created_at:timestamp(3):timestamp, customer_id:integer:int4, email:varchar:text] updateAssignments=JdbcAssignmentItem[column=is_active:boolean:bool, queryParameter=QueryParameter{jdbcType=Optional.empty, type=boolean, value=Optional[false]}]\\\"\\n    },\\n    \\\"outputs\\\" : [ {\\n      \\\"symbol\\\" : \\\"rows\\\",\\n      \\\"type\\\" : \\\"bigint\\\"\\n    } ],\\n    \\\"details\\\" : [ ],\\n    \\\"estimates\\\" : [ ],\\n    \\\"children\\\" : [ ]\\n  } ]\\n}\"},\"coordinatorOnly\":true,\"types\":[\"bigint\"],\"stageStats\":{\"schedulingComplete\":\"2025-09-29T16:09:09.207Z\",\"getSplitDistribution\":{\"count\":0.0,\"total\":0.0,\"p01\":\"NaN\",\"p05\":\"NaN\",\"p10\":\"NaN\",\"p25\":\"NaN\",\"p50\":\"NaN\",\"p75\":\"NaN\",\"p90\":\"NaN\",\"p95\":\"NaN\",\"p99\":\"NaN\",\"min\":\"NaN\",\"max\":\"NaN\",\"avg\":\"NaN\"},\"totalTasks\":1,\"runningTasks\":0,\"completedTasks\":1,\"failedTasks\":0,\"totalDrivers\":1,\"queuedDrivers\":0,\"runningDrivers\":0,\"blockedDrivers\":0,\"completedDrivers\":1,\"cumulativeUserMemory\":309.486656,\"failedCumulativeUserMemory\":0.0,\"userMemoryReservation\":\"0B\",\"revocableMemoryReservation\":\"0B\",\"totalMemoryReservation\":\"0B\",\"peakUserMemoryReservation\":\"104B\",\"peakRevocableMemoryReservation\":\"0B\",\"totalScheduledTime\":\"5.05ms\",\"failedScheduledTime\":\"0.00s\",\"totalCpuTime\":\"2.59ms\",\"failedCpuTime\":\"0.00s\",\"totalBlockedTime\":\"0.00s\",\"fullyBlocked\":false,\"blockedReasons\":[],\"physicalInputDataSize\":\"0B\",\"failedPhysicalInputDataSize\":\"0B\",\"physicalInputPositions\":0,\"failedPhysicalInputPositions\":0,\"physicalInputReadTime\":\"0.00s\",\"failedPhysicalInputReadTime\":\"0.00s\",\"internalNetworkInputDataSize\":\"0B\",\"failedInternalNetworkInputDataSize\":\"0B\",\"internalNetworkInputPositions\":0,\"failedInternalNetworkInputPositions\":0,\"rawInputDataSize\":\"0B\",\"failedRawInputDataSize\":\"0B\",\"rawInputPositions\":0,\"failedRawInputPositions\":0,\"processedInputDataSize\":\"0B\",\"failedProcessedInputDataSize\":\"0B\",\"processedInputPositions\":0,\"failedProcessedInputPositions\":0,\"inputBlockedTime\":\"0.00s\",\"failedInputBlockedTime\":\"0.00s\",\"bufferedDataSize\":\"0B\",\"outputBufferUtilization\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AAAAAAAAAAAAAAAAAAAAyj4AAAAAAABZQAAAAADH+1dBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMo+AAAAgMXQQUEAAAAAmMkNQQAAAAB4jzVBAAAAAHOCQUE=\",\"min\":0.0,\"max\":3.0994415283203125E-6,\"p25\":0.0,\"p50\":0.0,\"p75\":2.3901538459269405E-6,\"p90\":3.0994415283203125E-6,\"p95\":3.0994415283203125E-6,\"p99\":3.0994415283203125E-6,\"total\":6287132,\"p01\":0.0,\"p05\":0.0,\"p10\":0.0},\"outputDataSize\":\"9B\",\"failedOutputDataSize\":\"0B\",\"outputPositions\":1,\"failedOutputPositions\":0,\"outputBlockedTime\":\"0.00s\",\"failedOutputBlockedTime\":\"0.00s\",\"physicalWrittenDataSize\":\"0B\",\"failedPhysicalWrittenDataSize\":\"0B\",\"gcInfo\":{\"stageId\":0,\"tasks\":1,\"fullGcTasks\":0,\"minFullGcSec\":0,\"maxFullGcSec\":0,\"totalFullGcSec\":0,\"averageFullGcSec\":0},\"operatorSummaries\":[{\"stageId\":0,\"pipelineId\":0,\"operatorId\":0,\"planNodeId\":\"259\",\"operatorType\":\"TableMutationOperator\",\"totalDrivers\":1,\"addInputCalls\":0,\"addInputWall\":\"0.00ns\",\"addInputCpu\":\"0.00ns\",\"physicalInputDataSize\":\"0B\",\"physicalInputPositions\":0,\"physicalInputReadTime\":\"0.00ns\",\"internalNetworkInputDataSize\":\"0B\",\"internalNetworkInputPositions\":0,\"rawInputDataSize\":\"0B\",\"inputDataSize\":\"0B\",\"inputPositions\":0,\"sumSquaredInputPositions\":0.0,\"getOutputCalls\":1,\"getOutputWall\":\"4.61ms\",\"getOutputCpu\":\"2.14ms\",\"outputDataSize\":\"9B\",\"outputPositions\":1,\"dynamicFilterSplitsProcessed\":0,\"metrics\":{\"CPU time distribution (s)\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"ANqEuMj2h2E/2oS4yPaHYT8AAAAAAABZQAAAAAAAAPA/AQAAANqEuMj2h2E/AAAAAAAA8D8=\",\"min\":0.0021400279999999995,\"max\":0.0021400279999999995,\"p25\":0.0021400279999999995,\"p50\":0.0021400279999999995,\"p75\":0.0021400279999999995,\"p90\":0.0021400279999999995,\"p95\":0.0021400279999999995,\"p99\":0.0021400279999999995,\"total\":1,\"p01\":0.0021400279999999995,\"p05\":0.0021400279999999995,\"p10\":0.0021400279999999995},\"Input rows distribution\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZQAAAAAAAAPA/AQAAAAAAAAAAAAAAAAAAAAAA8D8=\",\"min\":0.0,\"max\":0.0,\"p25\":0.0,\"p50\":0.0,\"p75\":0.0,\"p90\":0.0,\"p95\":0.0,\"p99\":0.0,\"total\":1,\"p01\":0.0,\"p05\":0.0,\"p10\":0.0},\"Scheduled time distribution (s)\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AHKOGy3w3XI/co4bLfDdcj8AAAAAAABZQAAAAAAAAPA/AQAAAHKOGy3w3XI/AAAAAAAA8D8=\",\"min\":0.004606187999999999,\"max\":0.004606187999999999,\"p25\":0.004606187999999999,\"p50\":0.004606187999999999,\"p75\":0.004606187999999999,\"p90\":0.004606187999999999,\"p95\":0.004606187999999999,\"p99\":0.004606187999999999,\"total\":1,\"p01\":0.004606187999999999,\"p05\":0.004606187999999999,\"p10\":0.004606187999999999},\"Blocked time distribution (s)\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZQAAAAAAAAPA/AQAAAAAAAAAAAAAAAAAAAAAA8D8=\",\"min\":0.0,\"max\":0.0,\"p25\":0.0,\"p50\":0.0,\"p75\":0.0,\"p90\":0.0,\"p95\":0.0,\"p99\":0.0,\"total\":1,\"p01\":0.0,\"p05\":0.0,\"p10\":0.0}},\"connectorMetrics\":{},\"physicalWrittenDataSize\":\"0B\",\"blockedWall\":\"0.00ns\",\"finishCalls\":0,\"finishWall\":\"0.00ns\",\"finishCpu\":\"0.00ns\",\"userMemoryReservation\":\"0B\",\"revocableMemoryReservation\":\"0B\",\"peakUserMemoryReservation\":\"0B\",\"peakRevocableMemoryReservation\":\"0B\",\"peakTotalMemoryReservation\":\"0B\",\"spilledDataSize\":\"0B\"},{\"stageId\":0,\"pipelineId\":0,\"operatorId\":1,\"planNodeId\":\"6\",\"operatorType\":\"TaskOutputOperator\",\"totalDrivers\":1,\"addInputCalls\":1,\"addInputWall\":\"347.41us\",\"addInputCpu\":\"349.36us\",\"physicalInputDataSize\":\"0B\",\"physicalInputPositions\":0,\"physicalInputReadTime\":\"0.00ns\",\"internalNetworkInputDataSize\":\"0B\",\"internalNetworkInputPositions\":0,\"rawInputDataSize\":\"0B\",\"inputDataSize\":\"9B\",\"inputPositions\":1,\"sumSquaredInputPositions\":1.0,\"getOutputCalls\":0,\"getOutputWall\":\"0.00ns\",\"getOutputCpu\":\"0.00ns\",\"outputDataSize\":\"9B\",\"outputPositions\":1,\"dynamicFilterSplitsProcessed\":0,\"metrics\":{\"CPU time distribution (s)\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AKJJ1p/MWDc/oknWn8xYNz8AAAAAAABZQAAAAAAAAPA/AQAAAKJJ1p/MWDc/AAAAAAAA8D8=\",\"min\":3.5624499999999993E-4,\"max\":3.5624499999999993E-4,\"p25\":3.5624499999999993E-4,\"p50\":3.5624499999999993E-4,\"p75\":3.5624499999999993E-4,\"p90\":3.5624499999999993E-4,\"p95\":3.5624499999999993E-4,\"p99\":3.5624499999999993E-4,\"total\":1,\"p01\":3.5624499999999993E-4,\"p05\":3.5624499999999993E-4,\"p10\":3.5624499999999993E-4},\"Input rows distribution\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AAAAAAAAAPA/AAAAAAAA8D8AAAAAAABZQAAAAAAAAPA/AQAAAAAAAAAAAPA/AAAAAAAA8D8=\",\"min\":1.0,\"max\":1.0,\"p25\":1.0,\"p50\":1.0,\"p75\":1.0,\"p90\":1.0,\"p95\":1.0,\"p99\":1.0,\"total\":1,\"p01\":1.0,\"p05\":1.0,\"p10\":1.0},\"Scheduled time distribution (s)\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"ANIa+lyqKDc/0hr6XKooNz8AAAAAAABZQAAAAAAAAPA/AQAAANIa+lyqKDc/AAAAAAAA8D8=\",\"min\":3.5337599999999997E-4,\"max\":3.5337599999999997E-4,\"p25\":3.5337599999999997E-4,\"p50\":3.5337599999999997E-4,\"p75\":3.5337599999999997E-4,\"p90\":3.5337599999999997E-4,\"p95\":3.5337599999999997E-4,\"p99\":3.5337599999999997E-4,\"total\":1,\"p01\":3.5337599999999997E-4,\"p05\":3.5337599999999997E-4,\"p10\":3.5337599999999997E-4},\"Blocked time distribution (s)\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZQAAAAAAAAPA/AQAAAAAAAAAAAAAAAAAAAAAA8D8=\",\"min\":0.0,\"max\":0.0,\"p25\":0.0,\"p50\":0.0,\"p75\":0.0,\"p90\":0.0,\"p95\":0.0,\"p99\":0.0,\"total\":1,\"p01\":0.0,\"p05\":0.0,\"p10\":0.0}},\"connectorMetrics\":{},\"physicalWrittenDataSize\":\"0B\",\"blockedWall\":\"0.00ns\",\"finishCalls\":1,\"finishWall\":\"5.97us\",\"finishCpu\":\"6.88us\",\"userMemoryReservation\":\"0B\",\"revocableMemoryReservation\":\"0B\",\"peakUserMemoryReservation\":\"64B\",\"peakRevocableMemoryReservation\":\"0B\",\"peakTotalMemoryReservation\":\"64B\",\"spilledDataSize\":\"0B\"}]},\"tasks\":[{\"taskStatus\":{\"taskId\":\"20250929_160908_00037_bqse9.0.0.0\",\"taskInstanceId\":\"dcd12ddc-70b3-4254-96fa-d56e09474222\",\"version\":2,\"state\":\"FINISHED\",\"self\":\"http://10.100.124.22:8080/v1/task/20250929_160908_00037_bqse9.0.0.0\",\"nodeId\":\"trino-coordinator-5d4bbf5d8b-c2xsx\",\"speculative\":false,\"failures\":[],\"queuedPartitionedDrivers\":0,\"runningPartitionedDrivers\":0,\"outputBufferStatus\":{\"outputBuffersVersion\":2,\"overutilized\":false,\"exchangeSinkInstanceHandleUpdateRequired\":false},\"outputDataSize\":\"9B\",\"writerInputDataSize\":\"0B\",\"physicalWrittenDataSize\":\"0B\",\"memoryReservation\":\"0B\",\"peakMemoryReservation\":\"104B\",\"revocableMemoryReservation\":\"0B\",\"fullGcCount\":0,\"fullGcTime\":\"0.00ns\",\"dynamicFiltersVersion\":0,\"queuedPartitionedSplitsWeight\":0,\"runningPartitionedSplitsWeight\":0},\"lastHeartbeat\":\"2025-09-29T16:09:09.233Z\",\"outputBuffers\":{\"type\":\"PARTITIONED\",\"state\":\"FINISHED\",\"canAddBuffers\":false,\"canAddPages\":false,\"totalBufferedBytes\":0,\"totalBufferedPages\":0,\"totalRowsSent\":1,\"totalPagesSent\":1,\"utilization\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AAAAAAAAAAAAAAAAAAAAyj4AAAAAAABZQAAAAADH+1dBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMo+AAAAgMXQQUEAAAAAmMkNQQAAAAB4jzVBAAAAAHOCQUE=\",\"min\":0.0,\"max\":3.0994415283203125E-6,\"p25\":0.0,\"p50\":0.0,\"p75\":2.3901538459269405E-6,\"p90\":3.0994415283203125E-6,\"p95\":3.0994415283203125E-6,\"p99\":3.0994415283203125E-6,\"total\":6287132,\"p01\":0.0,\"p05\":0.0,\"p10\":0.0}},\"noMoreSplits\":[],\"stats\":{\"createTime\":\"2025-09-29T16:09:09.214Z\",\"firstStartTime\":\"2025-09-29T16:09:09.224Z\",\"lastStartTime\":\"2025-09-29T16:09:09.224Z\",\"lastEndTime\":\"2025-09-29T16:09:09.229Z\",\"endTime\":\"2025-09-29T16:09:09.233Z\",\"elapsedTime\":\"10.52ms\",\"queuedTime\":\"999.45us\",\"totalDrivers\":1,\"queuedDrivers\":0,\"queuedPartitionedDrivers\":0,\"queuedPartitionedSplitsWeight\":0,\"runningDrivers\":0,\"runningPartitionedDrivers\":0,\"runningPartitionedSplitsWeight\":0,\"blockedDrivers\":0,\"completedDrivers\":1,\"cumulativeUserMemory\":309.486656,\"userMemoryReservation\":\"0B\",\"peakUserMemoryReservation\":\"104B\",\"revocableMemoryReservation\":\"0B\",\"totalScheduledTime\":\"5.05ms\",\"totalCpuTime\":\"2.59ms\",\"totalBlockedTime\":\"0.00ns\",\"fullyBlocked\":false,\"blockedReasons\":[],\"physicalInputDataSize\":\"0B\",\"physicalInputPositions\":0,\"physicalInputReadTime\":\"0.00ns\",\"internalNetworkInputDataSize\":\"0B\",\"internalNetworkInputPositions\":0,\"rawInputDataSize\":\"0B\",\"rawInputPositions\":0,\"processedInputDataSize\":\"0B\",\"processedInputPositions\":0,\"inputBlockedTime\":\"0.00ns\",\"outputDataSize\":\"9B\",\"outputPositions\":1,\"outputBlockedTime\":\"0.00ns\",\"writerInputDataSize\":\"0B\",\"physicalWrittenDataSize\":\"0B\",\"fullGcCount\":0,\"fullGcTime\":\"0.00ns\",\"pipelines\":[{\"pipelineId\":0,\"firstStartTime\":\"2025-09-29T16:09:09.224Z\",\"lastStartTime\":\"2025-09-29T16:09:09.224Z\",\"lastEndTime\":\"2025-09-29T16:09:09.229Z\",\"inputPipeline\":true,\"outputPipeline\":true,\"totalDrivers\":1,\"queuedDrivers\":0,\"queuedPartitionedDrivers\":0,\"queuedPartitionedSplitsWeight\":0,\"runningDrivers\":0,\"runningPartitionedDrivers\":0,\"runningPartitionedSplitsWeight\":0,\"blockedDrivers\":0,\"completedDrivers\":1,\"userMemoryReservation\":\"0B\",\"revocableMemoryReservation\":\"0B\",\"queuedTime\":{\"count\":1.0,\"total\":514329.0,\"p01\":514329.0,\"p05\":514329.0,\"p10\":514329.0,\"p25\":514329.0,\"p50\":514329.0,\"p75\":514329.0,\"p90\":514329.0,\"p95\":514329.0,\"p99\":514329.0,\"min\":514329.0,\"max\":514329.0,\"avg\":514329.0},\"elapsedTime\":{\"count\":1.0,\"total\":5569821.0,\"p01\":5569821.0,\"p05\":5569821.0,\"p10\":5569821.0,\"p25\":5569821.0,\"p50\":5569821.0,\"p75\":5569821.0,\"p90\":5569821.0,\"p95\":5569821.0,\"p99\":5569821.0,\"min\":5569821.0,\"max\":5569821.0,\"avg\":5569821.0},\"totalScheduledTime\":\"5.05ms\",\"totalCpuTime\":\"2.59ms\",\"totalBlockedTime\":\"0.00ns\",\"fullyBlocked\":false,\"blockedReasons\":[],\"physicalInputDataSize\":\"0B\",\"physicalInputPositions\":0,\"physicalInputReadTime\":\"0.00ns\",\"internalNetworkInputDataSize\":\"0B\",\"internalNetworkInputPositions\":0,\"rawInputDataSize\":\"0B\",\"rawInputPositions\":0,\"processedInputDataSize\":\"0B\",\"processedInputPositions\":0,\"inputBlockedTime\":\"0.00ns\",\"outputDataSize\":\"9B\",\"outputPositions\":1,\"outputBlockedTime\":\"0.00ns\",\"physicalWrittenDataSize\":\"0B\",\"operatorSummaries\":[{\"stageId\":0,\"pipelineId\":0,\"operatorId\":0,\"planNodeId\":\"259\",\"operatorType\":\"TableMutationOperator\",\"totalDrivers\":1,\"addInputCalls\":0,\"addInputWall\":\"0.00ns\",\"addInputCpu\":\"0.00ns\",\"physicalInputDataSize\":\"0B\",\"physicalInputPositions\":0,\"physicalInputReadTime\":\"0.00ns\",\"internalNetworkInputDataSize\":\"0B\",\"internalNetworkInputPositions\":0,\"rawInputDataSize\":\"0B\",\"inputDataSize\":\"0B\",\"inputPositions\":0,\"sumSquaredInputPositions\":0.0,\"getOutputCalls\":1,\"getOutputWall\":\"4.61ms\",\"getOutputCpu\":\"2.14ms\",\"outputDataSize\":\"9B\",\"outputPositions\":1,\"dynamicFilterSplitsProcessed\":0,\"metrics\":{\"CPU time distribution (s)\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"ANqEuMj2h2E/2oS4yPaHYT8AAAAAAABZQAAAAAAAAPA/AQAAANqEuMj2h2E/AAAAAAAA8D8=\",\"min\":0.0021400279999999995,\"max\":0.0021400279999999995,\"p25\":0.0021400279999999995,\"p50\":0.0021400279999999995,\"p75\":0.0021400279999999995,\"p90\":0.0021400279999999995,\"p95\":0.0021400279999999995,\"p99\":0.0021400279999999995,\"total\":1,\"p01\":0.0021400279999999995,\"p05\":0.0021400279999999995,\"p10\":0.0021400279999999995},\"Input rows distribution\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZQAAAAAAAAPA/AQAAAAAAAAAAAAAAAAAAAAAA8D8=\",\"min\":0.0,\"max\":0.0,\"p25\":0.0,\"p50\":0.0,\"p75\":0.0,\"p90\":0.0,\"p95\":0.0,\"p99\":0.0,\"total\":1,\"p01\":0.0,\"p05\":0.0,\"p10\":0.0},\"Scheduled time distribution (s)\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AHKOGy3w3XI/co4bLfDdcj8AAAAAAABZQAAAAAAAAPA/AQAAAHKOGy3w3XI/AAAAAAAA8D8=\",\"min\":0.004606187999999999,\"max\":0.004606187999999999,\"p25\":0.004606187999999999,\"p50\":0.004606187999999999,\"p75\":0.004606187999999999,\"p90\":0.004606187999999999,\"p95\":0.004606187999999999,\"p99\":0.004606187999999999,\"total\":1,\"p01\":0.004606187999999999,\"p05\":0.004606187999999999,\"p10\":0.004606187999999999},\"Blocked time distribution (s)\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZQAAAAAAAAPA/AQAAAAAAAAAAAAAAAAAAAAAA8D8=\",\"min\":0.0,\"max\":0.0,\"p25\":0.0,\"p50\":0.0,\"p75\":0.0,\"p90\":0.0,\"p95\":0.0,\"p99\":0.0,\"total\":1,\"p01\":0.0,\"p05\":0.0,\"p10\":0.0}},\"connectorMetrics\":{},\"physicalWrittenDataSize\":\"0B\",\"blockedWall\":\"0.00ns\",\"finishCalls\":0,\"finishWall\":\"0.00ns\",\"finishCpu\":\"0.00ns\",\"userMemoryReservation\":\"0B\",\"revocableMemoryReservation\":\"0B\",\"peakUserMemoryReservation\":\"0B\",\"peakRevocableMemoryReservation\":\"0B\",\"peakTotalMemoryReservation\":\"0B\",\"spilledDataSize\":\"0B\"},{\"stageId\":0,\"pipelineId\":0,\"operatorId\":1,\"planNodeId\":\"6\",\"operatorType\":\"TaskOutputOperator\",\"totalDrivers\":1,\"addInputCalls\":1,\"addInputWall\":\"347.41us\",\"addInputCpu\":\"349.36us\",\"physicalInputDataSize\":\"0B\",\"physicalInputPositions\":0,\"physicalInputReadTime\":\"0.00ns\",\"internalNetworkInputDataSize\":\"0B\",\"internalNetworkInputPositions\":0,\"rawInputDataSize\":\"0B\",\"inputDataSize\":\"9B\",\"inputPositions\":1,\"sumSquaredInputPositions\":1.0,\"getOutputCalls\":0,\"getOutputWall\":\"0.00ns\",\"getOutputCpu\":\"0.00ns\",\"outputDataSize\":\"9B\",\"outputPositions\":1,\"dynamicFilterSplitsProcessed\":0,\"metrics\":{\"CPU time distribution (s)\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AKJJ1p/MWDc/oknWn8xYNz8AAAAAAABZQAAAAAAAAPA/AQAAAKJJ1p/MWDc/AAAAAAAA8D8=\",\"min\":3.5624499999999993E-4,\"max\":3.5624499999999993E-4,\"p25\":3.5624499999999993E-4,\"p50\":3.5624499999999993E-4,\"p75\":3.5624499999999993E-4,\"p90\":3.5624499999999993E-4,\"p95\":3.5624499999999993E-4,\"p99\":3.5624499999999993E-4,\"total\":1,\"p01\":3.5624499999999993E-4,\"p05\":3.5624499999999993E-4,\"p10\":3.5624499999999993E-4},\"Input rows distribution\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AAAAAAAAAPA/AAAAAAAA8D8AAAAAAABZQAAAAAAAAPA/AQAAAAAAAAAAAPA/AAAAAAAA8D8=\",\"min\":1.0,\"max\":1.0,\"p25\":1.0,\"p50\":1.0,\"p75\":1.0,\"p90\":1.0,\"p95\":1.0,\"p99\":1.0,\"total\":1,\"p01\":1.0,\"p05\":1.0,\"p10\":1.0},\"Scheduled time distribution (s)\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"ANIa+lyqKDc/0hr6XKooNz8AAAAAAABZQAAAAAAAAPA/AQAAANIa+lyqKDc/AAAAAAAA8D8=\",\"min\":3.5337599999999997E-4,\"max\":3.5337599999999997E-4,\"p25\":3.5337599999999997E-4,\"p50\":3.5337599999999997E-4,\"p75\":3.5337599999999997E-4,\"p90\":3.5337599999999997E-4,\"p95\":3.5337599999999997E-4,\"p99\":3.5337599999999997E-4,\"total\":1,\"p01\":3.5337599999999997E-4,\"p05\":3.5337599999999997E-4,\"p10\":3.5337599999999997E-4},\"Blocked time distribution (s)\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZQAAAAAAAAPA/AQAAAAAAAAAAAAAAAAAAAAAA8D8=\",\"min\":0.0,\"max\":0.0,\"p25\":0.0,\"p50\":0.0,\"p75\":0.0,\"p90\":0.0,\"p95\":0.0,\"p99\":0.0,\"total\":1,\"p01\":0.0,\"p05\":0.0,\"p10\":0.0}},\"connectorMetrics\":{},\"physicalWrittenDataSize\":\"0B\",\"blockedWall\":\"0.00ns\",\"finishCalls\":1,\"finishWall\":\"5.97us\",\"finishCpu\":\"6.88us\",\"userMemoryReservation\":\"0B\",\"revocableMemoryReservation\":\"0B\",\"peakUserMemoryReservation\":\"64B\",\"peakRevocableMemoryReservation\":\"0B\",\"peakTotalMemoryReservation\":\"64B\",\"spilledDataSize\":\"0B\"}],\"drivers\":[]}]},\"needsPlan\":false}],\"subStages\":[],\"tables\":{}}"
+  },
+  "statistics": {
+    "cpuTime": 0.003,
+    "failedCpuTime": 0.0,
+    "wallTime": 0.239,
+    "queuedTime": 0.001,
+    "scheduledTime": 0.005,
+    "failedScheduledTime": 0.0,
+    "resourceWaitingTime": 0.163,
+    "analysisTime": 0.163,
+    "planningTime": 0.042,
+    "planningCpuTime": 0.041,
+    "executionTime": 0.075,
+    "inputBlockedTime": 0.0,
+    "failedInputBlockedTime": 0.0,
+    "outputBlockedTime": 0.0,
+    "failedOutputBlockedTime": 0.0,
+    "physicalInputReadTime": 0.0,
+    "peakUserMemoryBytes": 104,
+    "peakTaskUserMemory": 104,
+    "peakTaskTotalMemory": 104,
+    "physicalInputBytes": 0,
+    "physicalInputRows": 0,
+    "processedInputBytes": 0,
+    "processedInputRows": 0,
+    "internalNetworkBytes": 0,
+    "internalNetworkRows": 0,
+    "totalBytes": 0,
+    "totalRows": 0,
+    "outputBytes": 9,
+    "outputRows": 1,
+    "writtenBytes": 0,
+    "writtenRows": 0,
+    "spilledBytes": 0,
+    "cumulativeMemory": 309.486656,
+    "failedCumulativeMemory": 0.0,
+    "stageGcStatistics": [
+      {
+        "stageId": 0,
+        "tasks": 1,
+        "fullGcTasks": 0,
+        "minFullGcSec": 0,
+        "maxFullGcSec": 0,
+        "totalFullGcSec": 0,
+        "averageFullGcSec": 0
+      }
+    ],
+    "completedSplits": 1,
+    "complete": true,
+    "cpuTimeDistribution": [
+      {
+        "stageId": 0,
+        "tasks": 1,
+        "p25": 3,
+        "p50": 3,
+        "p75": 3,
+        "p90": 3,
+        "p95": 3,
+        "p99": 3,
+        "min": 3,
+        "max": 3,
+        "total": 3,
+        "average": 3.0
+      }
+    ],
+    "outputBufferUtilization": [
+      {
+        "stageId": 0,
+        "tasks": 1,
+        "p01": 0.0,
+        "p05": 0.0,
+        "p10": 0.0,
+        "p25": 0.0,
+        "p50": 0.0,
+        "p75": 0.00023901538459269406,
+        "p90": 0.00030994415283203125,
+        "p95": 0.00030994415283203125,
+        "p99": 0.00030994415283203125,
+        "min": 0.0,
+        "max": 0.00030994415283203125,
+        "duration": 0.006287132
+      }
+    ],
+    "operatorSummaries": [
+      "{\"stageId\":0,\"pipelineId\":0,\"operatorId\":0,\"planNodeId\":\"259\",\"operatorType\":\"TableMutationOperator\",\"totalDrivers\":1,\"addInputCalls\":0,\"addInputWall\":\"0.00ns\",\"addInputCpu\":\"0.00ns\",\"physicalInputDataSize\":\"0B\",\"physicalInputPositions\":0,\"physicalInputReadTime\":\"0.00ns\",\"internalNetworkInputDataSize\":\"0B\",\"internalNetworkInputPositions\":0,\"rawInputDataSize\":\"0B\",\"inputDataSize\":\"0B\",\"inputPositions\":0,\"sumSquaredInputPositions\":0.0,\"getOutputCalls\":1,\"getOutputWall\":\"4.61ms\",\"getOutputCpu\":\"2.14ms\",\"outputDataSize\":\"9B\",\"outputPositions\":1,\"dynamicFilterSplitsProcessed\":0,\"metrics\":{\"CPU time distribution (s)\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"ANqEuMj2h2E/2oS4yPaHYT8AAAAAAABZQAAAAAAAAPA/AQAAANqEuMj2h2E/AAAAAAAA8D8=\",\"min\":0.0021400279999999995,\"max\":0.0021400279999999995,\"p25\":0.0021400279999999995,\"p50\":0.0021400279999999995,\"p75\":0.0021400279999999995,\"p90\":0.0021400279999999995,\"p95\":0.0021400279999999995,\"p99\":0.0021400279999999995,\"total\":1,\"p01\":0.0021400279999999995,\"p05\":0.0021400279999999995,\"p10\":0.0021400279999999995},\"Input rows distribution\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZQAAAAAAAAPA/AQAAAAAAAAAAAAAAAAAAAAAA8D8=\",\"min\":0.0,\"max\":0.0,\"p25\":0.0,\"p50\":0.0,\"p75\":0.0,\"p90\":0.0,\"p95\":0.0,\"p99\":0.0,\"total\":1,\"p01\":0.0,\"p05\":0.0,\"p10\":0.0},\"Scheduled time distribution (s)\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AHKOGy3w3XI/co4bLfDdcj8AAAAAAABZQAAAAAAAAPA/AQAAAHKOGy3w3XI/AAAAAAAA8D8=\",\"min\":0.004606187999999999,\"max\":0.004606187999999999,\"p25\":0.004606187999999999,\"p50\":0.004606187999999999,\"p75\":0.004606187999999999,\"p90\":0.004606187999999999,\"p95\":0.004606187999999999,\"p99\":0.004606187999999999,\"total\":1,\"p01\":0.004606187999999999,\"p05\":0.004606187999999999,\"p10\":0.004606187999999999},\"Blocked time distribution (s)\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZQAAAAAAAAPA/AQAAAAAAAAAAAAAAAAAAAAAA8D8=\",\"min\":0.0,\"max\":0.0,\"p25\":0.0,\"p50\":0.0,\"p75\":0.0,\"p90\":0.0,\"p95\":0.0,\"p99\":0.0,\"total\":1,\"p01\":0.0,\"p05\":0.0,\"p10\":0.0}},\"connectorMetrics\":{},\"physicalWrittenDataSize\":\"0B\",\"blockedWall\":\"0.00ns\",\"finishCalls\":0,\"finishWall\":\"0.00ns\",\"finishCpu\":\"0.00ns\",\"userMemoryReservation\":\"0B\",\"revocableMemoryReservation\":\"0B\",\"peakUserMemoryReservation\":\"0B\",\"peakRevocableMemoryReservation\":\"0B\",\"peakTotalMemoryReservation\":\"0B\",\"spilledDataSize\":\"0B\"}",
+      "{\"stageId\":0,\"pipelineId\":0,\"operatorId\":1,\"planNodeId\":\"6\",\"operatorType\":\"TaskOutputOperator\",\"totalDrivers\":1,\"addInputCalls\":1,\"addInputWall\":\"347.41us\",\"addInputCpu\":\"349.36us\",\"physicalInputDataSize\":\"0B\",\"physicalInputPositions\":0,\"physicalInputReadTime\":\"0.00ns\",\"internalNetworkInputDataSize\":\"0B\",\"internalNetworkInputPositions\":0,\"rawInputDataSize\":\"0B\",\"inputDataSize\":\"9B\",\"inputPositions\":1,\"sumSquaredInputPositions\":1.0,\"getOutputCalls\":0,\"getOutputWall\":\"0.00ns\",\"getOutputCpu\":\"0.00ns\",\"outputDataSize\":\"9B\",\"outputPositions\":1,\"dynamicFilterSplitsProcessed\":0,\"metrics\":{\"CPU time distribution (s)\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AKJJ1p/MWDc/oknWn8xYNz8AAAAAAABZQAAAAAAAAPA/AQAAAKJJ1p/MWDc/AAAAAAAA8D8=\",\"min\":3.5624499999999993E-4,\"max\":3.5624499999999993E-4,\"p25\":3.5624499999999993E-4,\"p50\":3.5624499999999993E-4,\"p75\":3.5624499999999993E-4,\"p90\":3.5624499999999993E-4,\"p95\":3.5624499999999993E-4,\"p99\":3.5624499999999993E-4,\"total\":1,\"p01\":3.5624499999999993E-4,\"p05\":3.5624499999999993E-4,\"p10\":3.5624499999999993E-4},\"Input rows distribution\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AAAAAAAAAPA/AAAAAAAA8D8AAAAAAABZQAAAAAAAAPA/AQAAAAAAAAAAAPA/AAAAAAAA8D8=\",\"min\":1.0,\"max\":1.0,\"p25\":1.0,\"p50\":1.0,\"p75\":1.0,\"p90\":1.0,\"p95\":1.0,\"p99\":1.0,\"total\":1,\"p01\":1.0,\"p05\":1.0,\"p10\":1.0},\"Scheduled time distribution (s)\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"ANIa+lyqKDc/0hr6XKooNz8AAAAAAABZQAAAAAAAAPA/AQAAANIa+lyqKDc/AAAAAAAA8D8=\",\"min\":3.5337599999999997E-4,\"max\":3.5337599999999997E-4,\"p25\":3.5337599999999997E-4,\"p50\":3.5337599999999997E-4,\"p75\":3.5337599999999997E-4,\"p90\":3.5337599999999997E-4,\"p95\":3.5337599999999997E-4,\"p99\":3.5337599999999997E-4,\"total\":1,\"p01\":3.5337599999999997E-4,\"p05\":3.5337599999999997E-4,\"p10\":3.5337599999999997E-4},\"Blocked time distribution (s)\":{\"@class\":\"io.trino.plugin.base.metrics.TDigestHistogram\",\"digest\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZQAAAAAAAAPA/AQAAAAAAAAAAAAAAAAAAAAAA8D8=\",\"min\":0.0,\"max\":0.0,\"p25\":0.0,\"p50\":0.0,\"p75\":0.0,\"p90\":0.0,\"p95\":0.0,\"p99\":0.0,\"total\":1,\"p01\":0.0,\"p05\":0.0,\"p10\":0.0}},\"connectorMetrics\":{},\"physicalWrittenDataSize\":\"0B\",\"blockedWall\":\"0.00ns\",\"finishCalls\":1,\"finishWall\":\"5.97us\",\"finishCpu\":\"6.88us\",\"userMemoryReservation\":\"0B\",\"revocableMemoryReservation\":\"0B\",\"peakUserMemoryReservation\":\"64B\",\"peakRevocableMemoryReservation\":\"0B\",\"peakTotalMemoryReservation\":\"64B\",\"spilledDataSize\":\"0B\"}"
+    ],
+    "optimizerRulesSummaries": [
+      {
+        "rule": "io.trino.sql.planner.iterative.rule.PushPredicateIntoTableScan",
+        "invocations": 1,
+        "applied": 1,
+        "totalTime": 9970156,
+        "failures": 0
+      },
+      {
+        "rule": "io.trino.sql.planner.iterative.rule.ExpressionRewriteRuleSet.ProjectExpressionRewrite",
+        "invocations": 80,
+        "applied": 1,
+        "totalTime": 9279173,
+        "failures": 0
+      },
+      {
+        "rule": "io.trino.sql.planner.iterative.rule.PushProjectionIntoTableScan",
+        "invocations": 4,
+        "applied": 0,
+        "totalTime": 3182618,
+        "failures": 0
+      },
+      {
+        "rule": "io.trino.sql.planner.optimizations.PredicatePushDown",
+        "invocations": 6,
+        "applied": 6,
+        "totalTime": 1292432,
+        "failures": 0
+      },
+      {
+        "rule": "io.trino.sql.planner.iterative.rule.PruneTableScanColumns",
+        "invocations": 16,
+        "applied": 1,
+        "totalTime": 961853,
+        "failures": 0
+      },
+      {
+        "rule": "io.trino.sql.planner.iterative.rule.ExpressionRewriteRuleSet.FilterExpressionRewrite",
+        "invocations": 26,
+        "applied": 0,
+        "totalTime": 713361,
+        "failures": 0
+      },
+      {
+        "rule": "io.trino.sql.planner.iterative.rule.PushMergeWriterUpdateIntoConnector",
+        "invocations": 1,
+        "applied": 1,
+        "totalTime": 447772,
+        "failures": 0
+      },
+      {
+        "rule": "io.trino.sql.planner.iterative.rule.PruneFilterColumns",
+        "invocations": 14,
+        "applied": 1,
+        "totalTime": 299067,
+        "failures": 0
+      },
+      {
+        "rule": "io.trino.sql.planner.iterative.rule.PruneOutputSourceColumns",
+        "invocations": 14,
+        "applied": 0,
+        "totalTime": 262311,
+        "failures": 0
+      },
+      {
+        "rule": "io.trino.sql.planner.iterative.rule.PushProjectionThroughUnion",
+        "invocations": 9,
+        "applied": 0,
+        "totalTime": 244001,
+        "failures": 0
+      }
+    ],
+    "planNodeStatsAndCosts": "{\"stats\":{\"6\":{\"outputRowCount\":\"NaN\",\"symbolStatistics\":{}},\"259\":{\"outputRowCount\":\"NaN\",\"symbolStatistics\":{}}},\"costs\":{\"6\":{\"cpuCost\":\"NaN\",\"maxMemory\":\"NaN\",\"maxMemoryWhenOutputting\":\"NaN\",\"networkCost\":\"NaN\",\"rootNodeLocalCostEstimate\":{\"cpuCost\":0.0,\"maxMemory\":0.0,\"networkCost\":0.0}},\"259\":{\"cpuCost\":\"NaN\",\"maxMemory\":\"NaN\",\"maxMemoryWhenOutputting\":\"NaN\",\"networkCost\":\"NaN\",\"rootNodeLocalCostEstimate\":{\"cpuCost\":\"NaN\",\"maxMemory\":\"NaN\",\"networkCost\":\"NaN\"}}}}"
+  },
+  "context": {
+    "user": "service-account-trino-client",
+    "originalUser": "service-account-trino-client",
+    "principal": "service-account-trino-client",
+    "enabledRoles": [],
+    "groups": [],
+    "remoteClientAddress": "10.100.124.27",
+    "userAgent": "Trino Python Client/0.336.0",
+    "clientTags": [],
+    "clientCapabilities": [
+      "PARAMETRIC_DATETIME",
+      "SESSION_AUTHORIZATION"
+    ],
+    "source": "trino-python-client",
+    "timezone": "UTC",
+    "catalog": "hive",
+    "schema": "default",
+    "resourceGroupId": [
+      "global"
+    ],
+    "sessionProperties": {},
+    "resourceEstimates": {},
+    "serverAddress": "10.100.124.22",
+    "serverVersion": "435",
+    "environment": "production",
+    "queryType": "UPDATE",
+    "retryPolicy": "NONE"
+  },
+  "ioMetadata": {
+    "inputs": [],
+    "output": {
+      "catalogName": "testpostgres25",
+      "catalogVersion": "2fbe02376e3ec9e0e18c3de10e908d4559b0af6ec3a027807ccf6fd4a01871cb",
+      "schema": "app_test_ok",
+      "table": "customers_test_ok",
+      "columns": [
+        {
+          "columnName": "is_active",
+          "columnType": "boolean",
+          "sourceColumns": []
+        }
+      ]
+    }
+  },
+  "warnings": [],
+  "createTime": "2025-09-29T16:09:09Z",
+  "executionStartTime": "2025-09-29T16:09:09.164Z",
+  "endTime": "2025-09-29T16:09:09.239Z"
+}

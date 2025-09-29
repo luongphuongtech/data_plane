@@ -1,9 +1,10 @@
-FROM trinodb/trino:469
+FROM trinodb/trino:435
 
 COPY gravitino-trino-connector-1.0.0 /lib/trino/plugin/gravitino-trino-connector-1.0.0 
 
 COPY ca.crt /$JAVA_HOME/lib/security/
 
+COPY /trino/http-event-listener.properties /etc/http-event-listener.properties
 USER root
 RUN keytool -importcert \
       -alias trino-local \

@@ -351,6 +351,7 @@ additionalConfigProperties:
     - catalog.management=dynamic
     - internal-communication.shared-secret=superSecretValue123!
     - http-server.process-forwarded=true
+    - event-listener.config-files=/etc/http-event-listener.properties
 # additionalConfigProperties -- [Additional config
 # properties](https://trino.io/docs/current/admin/properties.html).
 # @raw
