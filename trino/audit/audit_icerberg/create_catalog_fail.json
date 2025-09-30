@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "queryId": "20250930_085245_00002_bsafq",
+    "transactionId": "5445e186-3a1b-4295-8fda-8f81e122c143",
+    "query": "CREATE CATALOG iceberg_test_550 USING gravitino WITH ( \"__gravitino.dynamic.connector\" = 'true', \"__gravitino.dynamic.connector.catalog.config\" = '{\"metalake\":\"example_metalake\",\"provider\":\"lakehouse-iceberg\",\"name\":\"iceberg_test_550\",\"properties\":{\"jdbc-password\":\"admin\",\"jdbc-driver\":\"org.postgresql.Driver\",\"io-impl\":\"org.apache.iceberg.aws.s3.S3FileIO\",\"s3-secret-access-key\":\"EY8BAzXxm0Us5ewACNmNkWW2pRYHYf3D/iPsK17J\",\"trino.bypass.s3.aws-access-key\":\"AKIAYI5RE56NQNOGN36S\",\"warehouse\":\"s3://big-query-gcp/dags/test_ice\",\"uri\":\"jdbc:postgresql://my-postgres-postgresql.data-service.svc.cluster.local:5432/test_icerberg_100\",\"in-use\":\"true\",\"trino.bypass.fs.native-s3.enabled\":\"true\",\"catalog-backend\":\"jdbc\",\"s3-access-key-id\":\"AKIAYI5RE56NQNOGN36S\",\"jdbc-user\":\"admin\",\"trino.bypass.s3.region\":\"us-east-1\",\"s3-region\":\"us-east-1\",\"trino.bypass.s3.aws-secret-key\":\"EY8BAzXxm0Us5ewACNmNkWW2pRYHYf3D/iPsK17J\"},\"lastModifiedTime\":1759222265901}', \"trino.jdbc.password\"='12345678',\"gravitino.trino.skip-version-validation\"='true',\"trino.jdbc.user\"='test',\"gravitino.uri\"='http://gravitino.data-service.svc.cluster.local:8090',\"gravitino.metalake\"='example_metalake')",
+    "updateType": "CREATE CATALOG",
+    "queryState": "FAILED",
+    "tables": [],
+    "routines": [],
+    "uri": "http://10.100.124.9:8080/v1/query/20250930_085245_00002_bsafq"
+  },
+  "statistics": {
+    "cpuTime": 0.0,
+    "failedCpuTime": 0.0,
+    "wallTime": 0.0,
+    "queuedTime": 0.002,
+    "peakUserMemoryBytes": 0,
+    "peakTaskUserMemory": 0,
+    "peakTaskTotalMemory": 0,
+    "physicalInputBytes": 0,
+    "physicalInputRows": 0,
+    "processedInputBytes": 0,
+    "processedInputRows": 0,
+    "internalNetworkBytes": 0,
+    "internalNetworkRows": 0,
+    "totalBytes": 0,
+    "totalRows": 0,
+    "outputBytes": 0,
+    "outputRows": 0,
+    "writtenBytes": 0,
+    "writtenRows": 0,
+    "spilledBytes": 0,
+    "cumulativeMemory": 0.0,
+    "failedCumulativeMemory": 0.0,
+    "stageGcStatistics": [],
+    "completedSplits": 0,
+    "complete": true,
+    "cpuTimeDistribution": [],
+    "outputBufferUtilization": [],
+    "operatorSummaries": [],
+    "optimizerRulesSummaries": []
+  },
+  "context": {
+    "user": "test",
+    "originalUser": "test",
+    "principal": "test",
+    "enabledRoles": [],
+    "groups": [],
+    "remoteClientAddress": "10.100.124.9",
+    "userAgent": "Trino JDBC Driver/435",
+    "clientTags": [],
+    "clientCapabilities": [
+      "PATH",
+      "PARAMETRIC_DATETIME",
+      "SESSION_AUTHORIZATION"
+    ],
+    "source": "trino-jdbc",
+    "timezone": "UTC",
+    "resourceGroupId": [
+      "global"
+    ],
+    "sessionProperties": {},
+    "resourceEstimates": {},
+    "serverAddress": "10.100.124.9",
+    "serverVersion": "435",
+    "environment": "production",
+    "queryType": "DATA_DEFINITION",
+    "retryPolicy": "NONE"
+  },
+  "ioMetadata": {
+    "inputs": []
+  },
+  "failureInfo": {
+    "errorCode": {
+      "code": 65566,
+      "name": "CATALOG_STORE_ERROR",
+      "type": "INTERNAL_ERROR"
+    },
+    "failureType": "io.trino.spi.TrinoException",
+    "failureMessage": "Could not store catalog properties",
+    "failuresJson": "{\"type\":\"io.trino.spi.TrinoException\",\"message\":\"Could not store catalog properties\",\"suppressed\":[],\"stack\":[\"io.trino.connector.FileCatalogStore.addOrReplaceCatalog(FileCatalogStore.java:123)\",\"io.trino.connector.CoordinatorDynamicCatalogManager.createCatalog(CoordinatorDynamicCatalogManager.java:274)\",\"io.trino.execution.CreateCatalogTask.execute(CreateCatalogTask.java:98)\",\"io.trino.execution.CreateCatalogTask.execute(CreateCatalogTask.java:42)\",\"io.trino.execution.DataDefinitionExecution.start(DataDefinitionExecution.java:145)\",\"io.trino.execution.SqlQueryManager.createQuery(SqlQueryManager.java:256)\",\"io.trino.dispatcher.LocalDispatchQuery.startExecution(LocalDispatchQuery.java:145)\",\"io.trino.dispatcher.LocalDispatchQuery.lambda$waitForMinimumWorkers$2(LocalDispatchQuery.java:129)\",\"io.airlift.concurrent.MoreFutures.lambda$addSuccessCallback$12(MoreFutures.java:568)\",\"io.airlift.concurrent.MoreFutures$3.onSuccess(MoreFutures.java:543)\",\"com.google.common.util.concurrent.Futures$CallbackListener.run(Futures.java:1133)\",\"io.trino.$gen.Trino_435____20250930_085156_2.run(Unknown Source)\",\"java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)\",\"java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)\",\"java.base/java.lang.Thread.run(Thread.java:1583)\"],\"errorCode\":{\"code\":65566,\"name\":\"CATALOG_STORE_ERROR\",\"type\":\"INTERNAL_ERROR\"}}"
+  },
+  "warnings": [],
+  "createTime": "2025-09-30T08:52:45.196Z",
+  "executionStartTime": "2025-09-30T08:52:50.179Z",
+  "endTime": "2025-09-30T08:52:50.179Z"
+}

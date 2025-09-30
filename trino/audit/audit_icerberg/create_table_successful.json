@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "queryId": "20250930_085517_00012_bsafq",
+    "transactionId": "44d20e61-50c5-4fa5-ab4c-85a00064957b",
+    "query": "CREATE TABLE IF NOT EXISTS iceberg_test_550.schema_test_25.table_test_25 (\n                customer_id INTEGER,\n                full_name   VARCHAR\n            )",
+    "updateType": "CREATE TABLE",
+    "queryState": "FINISHED",
+    "tables": [],
+    "routines": [],
+    "uri": "http://10.100.124.9:8080/v1/query/20250930_085517_00012_bsafq"
+  },
+  "statistics": {
+    "cpuTime": 0.0,
+    "failedCpuTime": 0.0,
+    "wallTime": 2.979,
+    "queuedTime": 0.002,
+    "scheduledTime": 0.0,
+    "failedScheduledTime": 0.0,
+    "resourceWaitingTime": 0.0,
+    "analysisTime": 0.0,
+    "planningTime": 0.0,
+    "planningCpuTime": 0.0,
+    "executionTime": 2.975,
+    "inputBlockedTime": 0.0,
+    "failedInputBlockedTime": 0.0,
+    "outputBlockedTime": 0.0,
+    "failedOutputBlockedTime": 0.0,
+    "physicalInputReadTime": 0.0,
+    "peakUserMemoryBytes": 0,
+    "peakTaskUserMemory": 0,
+    "peakTaskTotalMemory": 0,
+    "physicalInputBytes": 0,
+    "physicalInputRows": 0,
+    "processedInputBytes": 0,
+    "processedInputRows": 0,
+    "internalNetworkBytes": 0,
+    "internalNetworkRows": 0,
+    "totalBytes": 0,
+    "totalRows": 0,
+    "outputBytes": 0,
+    "outputRows": 0,
+    "writtenBytes": 0,
+    "writtenRows": 0,
+    "spilledBytes": 0,
+    "cumulativeMemory": 0.0,
+    "failedCumulativeMemory": 0.0,
+    "stageGcStatistics": [],
+    "completedSplits": 0,
+    "complete": true,
+    "cpuTimeDistribution": [],
+    "outputBufferUtilization": [],
+    "operatorSummaries": [],
+    "optimizerRulesSummaries": []
+  },
+  "context": {
+    "user": "test",
+    "originalUser": "test",
+    "principal": "test",
+    "enabledRoles": [],
+    "groups": [],
+    "remoteClientAddress": "10.100.124.9",
+    "userAgent": "StatementClientV1/435",
+    "clientTags": [],
+    "clientCapabilities": [
+      "PATH",
+      "PARAMETRIC_DATETIME",
+      "SESSION_AUTHORIZATION"
+    ],
+    "source": "trino-cli",
+    "timezone": "UTC",
+    "resourceGroupId": [
+      "global"
+    ],
+    "sessionProperties": {},
+    "resourceEstimates": {},
+    "serverAddress": "10.100.124.9",
+    "serverVersion": "435",
+    "environment": "production",
+    "queryType": "DATA_DEFINITION",
+    "retryPolicy": "NONE"
+  },
+  "ioMetadata": {
+    "inputs": [],
+    "output": {
+      "catalogName": "iceberg_test_550",
+      "catalogVersion": "b4eca88d2a286540bf8403183ef33c31b0aee9707755e4e591cd8c6a8b79adcf",
+      "schema": "schema_test_25",
+      "table": "table_test_25",
+      "columns": [
+        {
+          "columnName": "customer_id",
+          "columnType": "integer",
+          "sourceColumns": []
+        },
+        {
+          "columnName": "full_name",
+          "columnType": "varchar",
+          "sourceColumns": []
+        }
+      ]
+    }
+  },
+  "warnings": [],
+  "createTime": "2025-09-30T08:55:17.274Z",
+  "executionStartTime": "2025-09-30T08:55:17.277Z",
+  "endTime": "2025-09-30T08:55:20.253Z"
+}
